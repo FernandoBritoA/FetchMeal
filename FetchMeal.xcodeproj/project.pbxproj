@@ -13,7 +13,7 @@
 		BF5552F02A8826FC00CD327A /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF060BF72A87F4350029746E /* ApiCaller.swift */; };
 		BF99AF7E2A86E5E700D4FACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99AF7D2A86E5E700D4FACB /* AppDelegate.swift */; };
 		BF99AF802A86E5E700D4FACB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99AF7F2A86E5E700D4FACB /* SceneDelegate.swift */; };
-		BF99AF822A86E5E700D4FACB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99AF812A86E5E700D4FACB /* ViewController.swift */; };
+		BF99AF822A86E5E700D4FACB /* MealsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99AF812A86E5E700D4FACB /* MealsListViewController.swift */; };
 		BF99AF872A86E5E800D4FACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF99AF862A86E5E800D4FACB /* Assets.xcassets */; };
 		BF99AF8A2A86E5E800D4FACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99AF882A86E5E800D4FACB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -26,7 +26,7 @@
 		BF99AF7A2A86E5E700D4FACB /* FetchMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF99AF7D2A86E5E700D4FACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF99AF7F2A86E5E700D4FACB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF99AF812A86E5E700D4FACB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF99AF812A86E5E700D4FACB /* MealsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsListViewController.swift; sourceTree = "<group>"; };
 		BF99AF862A86E5E800D4FACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF99AF892A86E5E800D4FACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF99AF8B2A86E5E800D4FACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,6 +60,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		BF5552F12A88361500CD327A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BF99AF812A86E5E700D4FACB /* MealsListViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF5552F22A88363F00CD327A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BF99AF7D2A86E5E700D4FACB /* AppDelegate.swift */,
+				BF99AF7F2A86E5E700D4FACB /* SceneDelegate.swift */,
+				BF060BF42A87F2E70029746E /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		BF99AF712A86E5E700D4FACB = {
 			isa = PBXGroup;
 			children = (
@@ -79,15 +97,13 @@
 		BF99AF7C2A86E5E700D4FACB /* FetchMeal */ = {
 			isa = PBXGroup;
 			children = (
+				BF5552F22A88363F00CD327A /* Resources */,
+				BF5552F12A88361500CD327A /* Controllers */,
 				BF060BF92A87FE8B0029746E /* Models */,
 				BF060BF62A87F4170029746E /* Managers */,
-				BF99AF7D2A86E5E700D4FACB /* AppDelegate.swift */,
-				BF99AF7F2A86E5E700D4FACB /* SceneDelegate.swift */,
-				BF99AF812A86E5E700D4FACB /* ViewController.swift */,
 				BF99AF862A86E5E800D4FACB /* Assets.xcassets */,
 				BF99AF882A86E5E800D4FACB /* LaunchScreen.storyboard */,
 				BF99AF8B2A86E5E800D4FACB /* Info.plist */,
-				BF060BF42A87F2E70029746E /* Constants.swift */,
 			);
 			path = FetchMeal;
 			sourceTree = "<group>";
@@ -165,7 +181,7 @@
 				BF5552F02A8826FC00CD327A /* ApiCaller.swift in Sources */,
 				BF5552EE2A8826C000CD327A /* MealPreview.swift in Sources */,
 				BF5552EF2A8826C000CD327A /* MealDetail.swift in Sources */,
-				BF99AF822A86E5E700D4FACB /* ViewController.swift in Sources */,
+				BF99AF822A86E5E700D4FACB /* MealsListViewController.swift in Sources */,
 				BF99AF7E2A86E5E700D4FACB /* AppDelegate.swift in Sources */,
 				BF99AF802A86E5E700D4FACB /* SceneDelegate.swift in Sources */,
 				BF060BF52A87F2E70029746E /* Constants.swift in Sources */,
