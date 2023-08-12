@@ -28,57 +28,48 @@ enum APIError: Error {
 struct ApiCaller {
     static let shared = ApiCaller()
 
-    func getMealsByCategory(category: MealCategory, completion: @escaping (Result<[MealPreview], APIError>) -> Void) {
-        let endpoint = Constants.baseURL + Constants.endpoint.filterByCategory + category.rawValue
-        guard let url = URL(string: endpoint) else {
-            return completion(.failure(.invalidURL))
+    func fetchData<T: Decodable>(for: T.Type, from endpoint: String) async throws -> T {
+        guard let url = URL(string: Constants.baseURL + endpoint) else {
+            throw APIError.invalidURL
         }
 
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler: { data, response, error in
-            guard let data = data,
-                  let response = response as? HTTPURLResponse,
-                  response.statusCode == 200, error == nil
-            else {
-                return completion(.failure(.failedToGetData))
-            }
+        let (data, response) = try await URLSession.shared.data(from: url)
 
-            do {
-                let decoder = JSONDecoder()
-                let result = try decoder.decode(FetchMealPreviewsResponse.self, from: data)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw APIError.failedToGetData
+        }
 
-                completion(.success(result.meals))
-            } catch {
-                return completion(.failure(.failedToGetData))
-            }
-        })
+        do {
+            let decoder = JSONDecoder()
+            let result = try decoder.decode(T.self, from: data)
 
-        task.resume()
+            return result
+        } catch {
+            throw APIError.failedToGetData
+        }
     }
 
-    func getMealDetail(with id: String, completion: @escaping (Result<MealDetail, APIError>) -> Void) {
-        let endpoint = Constants.baseURL + Constants.endpoint.lookUpByID + id
-        guard let url = URL(string: endpoint) else {
-            return completion(.failure(.invalidURL))
+    func getMealsByCategory(category: MealCategory) async throws -> [MealPreview] {
+        let endpoint = Constants.endpoint.filterByCategory + category.rawValue
+
+        do {
+            let response = try await fetchData(for: FetchMealPreviewsResponse.self, from: endpoint)
+
+            return response.meals
+        } catch {
+            throw error
         }
+    }
 
-        let task = URLSession.shared.dataTask(with: URLRequest(url: url), completionHandler: { data, response, error in
-            guard let data = data,
-                  let response = response as? HTTPURLResponse,
-                  response.statusCode == 200, error == nil
-            else {
-                return completion(.failure(.failedToGetData))
-            }
+    func getMealDetail(with id: String) async throws -> MealDetail {
+        let endpoint = Constants.endpoint.lookUpByID + id
 
-            do {
-                let decoder = JSONDecoder()
-                let result = try decoder.decode(FetchMealDetailResponse.self, from: data)
+        do {
+            let response = try await fetchData(for: FetchMealDetailResponse.self, from: endpoint)
 
-                completion(.success(result.meals[0]))
-            } catch {
-                return completion(.failure(.failedToGetData))
-            }
-        })
-
-        task.resume()
+            return response.meals[0]
+        } catch {
+            throw error
+        }
     }
 }
