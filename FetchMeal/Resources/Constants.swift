@@ -12,6 +12,10 @@ struct K {
     enum Colors {
         static let backgroundBeige = "backgroundBeige"
     }
+
+    enum CellIDs {
+        static let MealCollectionView = "MealCollectionView"
+    }
 }
 
 // Screen width.
