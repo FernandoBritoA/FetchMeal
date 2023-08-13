@@ -54,8 +54,11 @@ struct ApiCaller {
 
         do {
             let response = try await fetchData(for: FetchMealPreviewsResponse.self, from: endpoint)
+            let sortedMeals = response.meals.sorted { mealA, mealB in
+                mealB.strMeal.lowercased() > mealA.strMeal.lowercased()
+            }
 
-            return response.meals
+            return sortedMeals
         } catch {
             throw error
         }

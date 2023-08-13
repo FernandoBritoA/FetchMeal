@@ -14,5 +14,5 @@ struct MealPreview: Decodable {
 }
 
 struct FetchMealPreviewsResponse: Decodable {
-    let meals: [MealPreview]
+    var meals: [MealPreview]
 }
