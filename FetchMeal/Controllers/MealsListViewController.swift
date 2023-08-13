@@ -11,10 +11,16 @@ class MealsListViewController: UIViewController {
     private var meals: [MealPreview] = []
 
     private let mealCollectionView: UICollectionView = {
+        let spacing = 20.0
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 120, height: 200)
+
+        layout.minimumLineSpacing = spacing / 2
+        layout.minimumInteritemSpacing = spacing
+        layout.itemSize = CGSize(width: (screenWidth - spacing * 3) / 2, height: 250)
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
+        collectionView.contentInset = UIEdgeInsets(top: spacing * 2, left: spacing, bottom: 0, right: spacing)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
 
         return collectionView
