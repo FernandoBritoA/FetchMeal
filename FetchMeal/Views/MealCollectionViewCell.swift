@@ -70,13 +70,9 @@ class MealCollectionViewCell: UICollectionViewCell {
     public func configure(with model: MealPreview) {
         guard let url = URL(string: model.strMealThumb) else { return }
 
-        DispatchQueue.global().async {
-            guard let data = try? Data(contentsOf: url) else { return }
-
-            DispatchQueue.main.async {
-                self.mealLabel.text = model.strMeal
-                self.mealImageView.image = UIImage(data: data)
-            }
+        mealLabel.text = model.strMeal
+        Task {
+            await mealImageView.load(with: url)
         }
     }
 }
