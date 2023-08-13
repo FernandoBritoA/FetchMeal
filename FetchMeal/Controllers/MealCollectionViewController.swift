@@ -77,7 +77,7 @@ extension MealCollectionViewController: UICollectionViewDelegate, UICollectionVi
 
         cell.clipsToBounds = true
         cell.layer.cornerRadius = 10
-        cell.configure(withURL: mealData.strMealThumb)
+        cell.configure(with: mealData)
 
         return cell
     }

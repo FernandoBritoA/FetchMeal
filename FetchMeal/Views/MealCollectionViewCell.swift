@@ -20,11 +20,22 @@ class MealCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
+    let mealLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.numberOfLines = 2
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        return label
+    }()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         contentView.backgroundColor = .white
         contentView.addSubview(mealImageView)
+        contentView.addSubview(mealLabel)
     }
 
     @available(*, unavailable)
@@ -46,16 +57,24 @@ class MealCollectionViewCell: UICollectionViewCell {
             mealImageView.heightAnchor.constraint(equalToConstant: contentView.frame.width),
         ]
 
-        NSLayoutConstraint.activate(mealImageViewConstraints)
+        let mealLabelConstraints = [
+            mealLabel.topAnchor.constraint(equalTo: mealImageView.bottomAnchor, constant: 10),
+            mealLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            mealLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            mealLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+        ]
+
+        NSLayoutConstraint.activate(mealImageViewConstraints + mealLabelConstraints)
     }
 
-    public func configure(withURL url: String) {
-        guard let url = URL(string: url) else { return }
+    public func configure(with model: MealPreview) {
+        guard let url = URL(string: model.strMealThumb) else { return }
 
         DispatchQueue.global().async {
             guard let data = try? Data(contentsOf: url) else { return }
 
             DispatchQueue.main.async {
+                self.mealLabel.text = model.strMeal
                 self.mealImageView.image = UIImage(data: data)
             }
         }
