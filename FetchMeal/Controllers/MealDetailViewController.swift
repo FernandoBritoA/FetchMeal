@@ -8,22 +8,45 @@
 import UIKit
 
 class MealDetailViewController: UIViewController {
+    private let mealImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+
+        imageView.backgroundColor = .lightGray
+        imageView.contentMode = .scaleAspectFit
+
+        return imageView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor(named: K.Colors.backgroundBeige)
+        view.addSubview(mealImageView)
     }
-    
 
-    /*
-    // MARK: - Navigation
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        configureConstraints()
     }
-    */
 
+    private func configureConstraints() {
+        let mealImageViewConstraints = [
+            mealImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            mealImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mealImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mealImageView.heightAnchor.constraint(equalToConstant: view.frame.width),
+        ]
+
+        NSLayoutConstraint.activate(mealImageViewConstraints)
+    }
+
+    public func configure(with model: MealDetail) {
+        guard let url = URL(string: model.strMealThumb) else { return }
+
+        Task {
+            await mealImageView.load(with: url)
+        }
+    }
 }

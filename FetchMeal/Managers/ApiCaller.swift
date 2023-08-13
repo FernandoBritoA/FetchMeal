@@ -64,7 +64,7 @@ struct ApiCaller {
         }
     }
 
-    func getMealDetail(with id: String) async throws -> MealDetail {
+    func getMealDetail(withId id: String) async throws -> MealDetail {
         let endpoint = Constants.endpoint.lookUpByID + id
 
         do {

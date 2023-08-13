@@ -20,7 +20,7 @@ class MealCollectionViewController: UIViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.contentInset = UIEdgeInsets(top: spacing * 2, left: spacing, bottom: 0, right: spacing)
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
         collectionView.register(MealCollectionViewCell.self, forCellWithReuseIdentifier: MealCollectionViewCell.identifier)
 
         return collectionView
@@ -40,6 +40,7 @@ class MealCollectionViewController: UIViewController {
             mealCollectionView.reloadData()
 
         } catch {
+            // TODO: Error handling
             print(error)
         }
     }
@@ -80,5 +81,24 @@ extension MealCollectionViewController: UICollectionViewDelegate, UICollectionVi
         cell.configure(with: mealData)
 
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+
+        let mealData = meals[indexPath.row]
+
+        let viewController = MealDetailViewController()
+
+        Task {
+            do {
+                let mealDetail = try await ApiCaller.shared.getMealDetail(withId: mealData.idMeal)
+                viewController.configure(with: mealDetail)
+                navigationController?.present(viewController, animated: true)
+            } catch {
+                // TODO: Error handling
+                print(error)
+            }
+        }
     }
 }
