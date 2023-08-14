@@ -88,7 +88,7 @@ class MealDetailViewController: UIViewController {
     public func configure(with model: MealDetail) {
         guard let url = URL(string: model.strMealThumb) else { return }
 
-        let instructions = MealInstructions(title: model.strMeal, instructions: model.strInstructions, ingredients: [""])
+        let instructions = formatMealDetail(from: model)
         mealInstructionsView.configure(with: instructions)
 
         Task {
