@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 struct K {
+    static let MealCollectionTitle = "Desserts"
+
     enum Colors {
         static let backgroundBeige = "backgroundBeige"
     }
@@ -16,7 +18,7 @@ struct K {
     enum CellIDs {
         static let MealCollectionView = "MealCollectionView"
     }
-    
+
     enum Dimensions {
         static let spacing = 20.0
     }

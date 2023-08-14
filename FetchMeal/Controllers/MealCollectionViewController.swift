@@ -20,7 +20,7 @@ class MealCollectionViewController: UIViewController {
 
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
-        collectionView.contentInset = UIEdgeInsets(top: 0, left: spacing, bottom: 0, right: spacing)
+        collectionView.contentInset = UIEdgeInsets(top: spacing, left: spacing, bottom: 0, right: spacing)
         collectionView.register(MealCollectionViewCell.self, forCellWithReuseIdentifier: MealCollectionViewCell.identifier)
 
         return collectionView
@@ -48,6 +48,9 @@ class MealCollectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = K.MealCollectionTitle
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.largeTitleDisplayMode = .always
         view.backgroundColor = UIColor(named: K.Colors.backgroundBeige)
 
         addCollectionView()
