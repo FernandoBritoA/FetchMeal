@@ -26,25 +26,6 @@ class MealCollectionViewController: UIViewController {
         return collectionView
     }()
 
-    private func addCollectionView() {
-        view.addSubview(mealCollectionView)
-
-        mealCollectionView.delegate = self
-        mealCollectionView.dataSource = self
-    }
-
-    private func fetchMeals() async {
-        do {
-            meals = try await ApiCaller.shared.getMealsByCategory(category: .dessert)
-
-            mealCollectionView.reloadData()
-
-        } catch {
-            // TODO: Error handling
-            print(error)
-        }
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,6 +45,25 @@ class MealCollectionViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         mealCollectionView.frame = view.bounds
+    }
+
+    private func addCollectionView() {
+        view.addSubview(mealCollectionView)
+
+        mealCollectionView.delegate = self
+        mealCollectionView.dataSource = self
+    }
+
+    private func fetchMeals() async {
+        do {
+            meals = try await ApiCaller.shared.getMealsByCategory(category: .dessert)
+
+            mealCollectionView.reloadData()
+
+        } catch {
+            // TODO: Error handling
+            print(error)
+        }
     }
 }
 
