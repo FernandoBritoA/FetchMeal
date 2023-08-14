@@ -8,15 +8,16 @@
 import Foundation
 
 // If the label starts with the string "strIngredient" or "strMeasure", we extract the ingredint index
-// e.g.: Input  = "strIngredient10" --> Output = 10
+// e.g.: Input  = "strIngredient10" --> Output = 9
 func getIngredientIndex(from label: String) -> Int? {
     let baseLabelA = "strIngredient"
     let baseLabelB = "strMeasure"
 
     if label.contains(baseLabelA) || label.contains(baseLabelB) {
         let lastChar = label.suffix(1)
+        let lastTwoChars = label.suffix(2)
 
-        guard let index = Int(lastChar) else {
+        guard let index = Int(lastTwoChars) ?? Int(lastChar) else {
             return nil
         }
 
