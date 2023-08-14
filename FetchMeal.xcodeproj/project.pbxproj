@@ -14,6 +14,8 @@
 		BF5552F52A89567800CD327A /* MealCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5552F42A89567800CD327A /* MealCollectionViewCell.swift */; };
 		BF5552F72A8967C700CD327A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5552F62A8967C700CD327A /* Extensions.swift */; };
 		BF5552F92A8981B500CD327A /* MealDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5552F82A8981B500CD327A /* MealDetailViewController.swift */; };
+		BF5552FD2A8987ED00CD327A /* MealInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5552FC2A8987ED00CD327A /* MealInstructionsView.swift */; };
+		BF5553002A8988ED00CD327A /* MealInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5552FF2A8988ED00CD327A /* MealInstructions.swift */; };
 		BF99AF7E2A86E5E700D4FACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99AF7D2A86E5E700D4FACB /* AppDelegate.swift */; };
 		BF99AF802A86E5E700D4FACB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99AF7F2A86E5E700D4FACB /* SceneDelegate.swift */; };
 		BF99AF822A86E5E700D4FACB /* MealCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99AF812A86E5E700D4FACB /* MealCollectionViewController.swift */; };
@@ -29,6 +31,8 @@
 		BF5552F42A89567800CD327A /* MealCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF5552F62A8967C700CD327A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF5552F82A8981B500CD327A /* MealDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailViewController.swift; sourceTree = "<group>"; };
+		BF5552FC2A8987ED00CD327A /* MealInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInstructionsView.swift; sourceTree = "<group>"; };
+		BF5552FF2A8988ED00CD327A /* MealInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInstructions.swift; sourceTree = "<group>"; };
 		BF99AF7A2A86E5E700D4FACB /* FetchMeal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchMeal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF99AF7D2A86E5E700D4FACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF99AF7F2A86E5E700D4FACB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,8 +94,17 @@
 			isa = PBXGroup;
 			children = (
 				BF5552F42A89567800CD327A /* MealCollectionViewCell.swift */,
+				BF5552FC2A8987ED00CD327A /* MealInstructionsView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		BF5552FE2A89884C00CD327A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BF5552FF2A8988ED00CD327A /* MealInstructions.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		BF99AF712A86E5E700D4FACB = {
@@ -113,6 +126,7 @@
 		BF99AF7C2A86E5E700D4FACB /* FetchMeal */ = {
 			isa = PBXGroup;
 			children = (
+				BF5552FE2A89884C00CD327A /* ViewModels */,
 				BF060BF92A87FE8B0029746E /* Models */,
 				BF5552F32A89560500CD327A /* Views */,
 				BF5552F12A88361500CD327A /* Controllers */,
@@ -197,12 +211,14 @@
 			files = (
 				BF5552F02A8826FC00CD327A /* ApiCaller.swift in Sources */,
 				BF5552F72A8967C700CD327A /* Extensions.swift in Sources */,
+				BF5552FD2A8987ED00CD327A /* MealInstructionsView.swift in Sources */,
 				BF5552EE2A8826C000CD327A /* MealPreview.swift in Sources */,
 				BF5552EF2A8826C000CD327A /* MealDetail.swift in Sources */,
 				BF99AF822A86E5E700D4FACB /* MealCollectionViewController.swift in Sources */,
 				BF99AF7E2A86E5E700D4FACB /* AppDelegate.swift in Sources */,
 				BF5552F52A89567800CD327A /* MealCollectionViewCell.swift in Sources */,
 				BF99AF802A86E5E700D4FACB /* SceneDelegate.swift in Sources */,
+				BF5553002A8988ED00CD327A /* MealInstructions.swift in Sources */,
 				BF5552F92A8981B500CD327A /* MealDetailViewController.swift in Sources */,
 				BF060BF52A87F2E70029746E /* Constants.swift in Sources */,
 			);

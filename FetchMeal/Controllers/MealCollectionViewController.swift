@@ -11,7 +11,7 @@ class MealCollectionViewController: UIViewController {
     private var meals: [MealPreview] = []
 
     private let mealCollectionView: UICollectionView = {
-        let spacing = 20.0
+        let spacing = K.Dimensions.spacing
         let layout = UICollectionViewFlowLayout()
 
         layout.minimumLineSpacing = spacing

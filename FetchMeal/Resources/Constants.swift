@@ -16,6 +16,10 @@ struct K {
     enum CellIDs {
         static let MealCollectionView = "MealCollectionView"
     }
+    
+    enum Dimensions {
+        static let spacing = 20.0
+    }
 }
 
 // Screen width.
