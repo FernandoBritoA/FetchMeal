@@ -107,7 +107,6 @@
 		BF5552F12A88361500CD327A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BFABA1612A8ADCFB00B239FF /* BulletPointsStackView */,
 				BF99AF812A86E5E700D4FACB /* MealCollectionViewController.swift */,
 				BF5552F82A8981B500CD327A /* MealDetailViewController.swift */,
 			);
@@ -129,6 +128,7 @@
 		BF5552F32A89560500CD327A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BFABA1612A8ADCFB00B239FF /* BulletPointsStackView */,
 				BF5552F42A89567800CD327A /* MealCollectionViewCell.swift */,
 				BF5552FC2A8987ED00CD327A /* MealInstructionsView.swift */,
 			);
