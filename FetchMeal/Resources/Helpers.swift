@@ -41,7 +41,7 @@ func formatMealDetail(from model: MealDetail) -> MealInstructions {
     for case let (label?, value) in mappedMirror {
         let index = getIngredientIndex(from: label)
 
-        if let index = index, let value = value as? String, value != "" {
+        if let index = index, let value = value as? String, value != "", value != " " {
             if ingredients.indices.contains(index) {
                 let ingredient = ingredients[index]
 

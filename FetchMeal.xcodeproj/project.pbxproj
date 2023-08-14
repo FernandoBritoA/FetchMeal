@@ -23,6 +23,8 @@
 		BF99AF822A86E5E700D4FACB /* MealCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF99AF812A86E5E700D4FACB /* MealCollectionViewController.swift */; };
 		BF99AF872A86E5E800D4FACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF99AF862A86E5E800D4FACB /* Assets.xcassets */; };
 		BF99AF8A2A86E5E800D4FACB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF99AF882A86E5E800D4FACB /* LaunchScreen.storyboard */; };
+		BFABA1632A8ADD3E00B239FF /* BulletPointsStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFABA1622A8ADD3E00B239FF /* BulletPointsStackView.swift */; };
+		BFABA1652A8ADFB800B239FF /* BulletPointView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFABA1642A8ADFB800B239FF /* BulletPointView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		BF99AF862A86E5E800D4FACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF99AF892A86E5E800D4FACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BF99AF8B2A86E5E800D4FACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BFABA1622A8ADD3E00B239FF /* BulletPointsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletPointsStackView.swift; sourceTree = "<group>"; };
+		BFABA1642A8ADFB800B239FF /* BulletPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletPointView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 		BF5552F12A88361500CD327A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BFABA1612A8ADCFB00B239FF /* BulletPointsStackView */,
 				BF99AF812A86E5E700D4FACB /* MealCollectionViewController.swift */,
 				BF5552F82A8981B500CD327A /* MealDetailViewController.swift */,
 			);
@@ -170,6 +175,15 @@
 				BF99AF8B2A86E5E800D4FACB /* Info.plist */,
 			);
 			path = FetchMeal;
+			sourceTree = "<group>";
+		};
+		BFABA1612A8ADCFB00B239FF /* BulletPointsStackView */ = {
+			isa = PBXGroup;
+			children = (
+				BFABA1622A8ADD3E00B239FF /* BulletPointsStackView.swift */,
+				BFABA1642A8ADFB800B239FF /* BulletPointView.swift */,
+			);
+			path = BulletPointsStackView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,12 +298,14 @@
 				BF5552F72A8967C700CD327A /* Extensions.swift in Sources */,
 				BF5552FD2A8987ED00CD327A /* MealInstructionsView.swift in Sources */,
 				BF5552EE2A8826C000CD327A /* MealPreview.swift in Sources */,
+				BFABA1652A8ADFB800B239FF /* BulletPointView.swift in Sources */,
 				BF5552EF2A8826C000CD327A /* MealDetail.swift in Sources */,
 				BF99AF822A86E5E700D4FACB /* MealCollectionViewController.swift in Sources */,
 				BF99AF7E2A86E5E700D4FACB /* AppDelegate.swift in Sources */,
 				BF5552F52A89567800CD327A /* MealCollectionViewCell.swift in Sources */,
 				BF99AF802A86E5E700D4FACB /* SceneDelegate.swift in Sources */,
 				BF5553002A8988ED00CD327A /* MealInstructions.swift in Sources */,
+				BFABA1632A8ADD3E00B239FF /* BulletPointsStackView.swift in Sources */,
 				BF5553022A89C3AE00CD327A /* Helpers.swift in Sources */,
 				BF5552F92A8981B500CD327A /* MealDetailViewController.swift in Sources */,
 				BF060BF52A87F2E70029746E /* Constants.swift in Sources */,

@@ -8,7 +8,7 @@
 import UIKit
 
 class MealInstructionsView: UIView {
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
 
         label.textColor = .black
@@ -19,7 +19,14 @@ class MealInstructionsView: UIView {
         return label
     }()
 
-    let instructionsLabel: UILabel = {
+    private let ingredientStackView: BulletPointsStackView = {
+        let stackView = BulletPointsStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        return stackView
+    }()
+
+    private let instructionsLabel: UILabel = {
         let label = UILabel()
 
         label.textColor = .black
@@ -33,6 +40,7 @@ class MealInstructionsView: UIView {
         super.init(frame: frame)
 
         addSubview(titleLabel)
+        addSubview(ingredientStackView)
         addSubview(instructionsLabel)
     }
 
@@ -55,18 +63,25 @@ class MealInstructionsView: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -spacing),
         ]
 
+        let ingredientStackViewConstraints = [
+            ingredientStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            ingredientStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: spacing),
+            ingredientStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -spacing),
+        ]
+
         let instructionsLabelConstraints = [
-            instructionsLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            instructionsLabel.topAnchor.constraint(equalTo: ingredientStackView.bottomAnchor, constant: spacing),
             instructionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: spacing),
             instructionsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -spacing),
             instructionsLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
         ]
 
-        NSLayoutConstraint.activate(titleLabelConstraints + instructionsLabelConstraints)
+        NSLayoutConstraint.activate(titleLabelConstraints + ingredientStackViewConstraints + instructionsLabelConstraints)
     }
 
     public func configure(with model: MealInstructions) {
         titleLabel.text = model.title
         instructionsLabel.text = model.instructions
+        ingredientStackView.configure(with: model.ingredients)
     }
 }
