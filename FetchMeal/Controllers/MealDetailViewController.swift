@@ -28,10 +28,10 @@ class MealDetailViewController: UIViewController {
 
     private let mealImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         imageView.backgroundColor = .lightGray
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         return imageView
     }()
@@ -54,7 +54,6 @@ class MealDetailViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         configureConstraints()
-        mealInstructionsView.frame = scrollViewContainer.bounds
     }
 
     private func configureConstraints() {

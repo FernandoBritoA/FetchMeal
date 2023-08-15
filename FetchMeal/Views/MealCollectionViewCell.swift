@@ -12,18 +12,19 @@ class MealCollectionViewCell: UICollectionViewCell {
 
     private let mealImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         imageView.backgroundColor = .lightGray
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         return imageView
     }()
 
     let mealLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
+
         label.numberOfLines = 2
+        label.textColor = .black
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -38,9 +39,8 @@ class MealCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(mealLabel)
     }
 
-    @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
     }
 
     override func layoutSubviews() {

@@ -20,6 +20,7 @@ class BulletPointView: UIView {
 
     private let bulletLabel: UILabel = {
         let label = UILabel()
+        
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
 

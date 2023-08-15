@@ -21,6 +21,7 @@ class MealInstructionsView: UIView {
 
     private let ingredientStackView: BulletPointsStackView = {
         let stackView = BulletPointsStackView()
+
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
         return stackView
