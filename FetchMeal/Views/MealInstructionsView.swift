@@ -13,7 +13,7 @@ class MealInstructionsView: UIView {
 
         label.textColor = .black
         label.numberOfLines = 0
-        label.font = .boldSystemFont(ofSize: 30)
+        label.font = .boldSystemFont(ofSize: 32)
         label.translatesAutoresizingMaskIntoConstraints = false
 
         return label
@@ -65,7 +65,7 @@ class MealInstructionsView: UIView {
         ]
 
         let ingredientStackViewConstraints = [
-            ingredientStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            ingredientStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: spacing),
             ingredientStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: spacing),
             ingredientStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -spacing),
         ]

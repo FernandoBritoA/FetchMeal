@@ -30,8 +30,11 @@ class MealCollectionViewController: UIViewController {
         super.viewDidLoad()
 
         title = K.MealCollectionTitle
+
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+
         view.backgroundColor = UIColor(named: K.Colors.backgroundBeige)
 
         addCollectionView()
