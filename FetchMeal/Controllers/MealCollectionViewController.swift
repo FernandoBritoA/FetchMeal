@@ -61,8 +61,7 @@ class MealCollectionViewController: UIViewController {
             mealCollectionView.reloadData()
 
         } catch {
-            // TODO: Error handling
-            print(error)
+            showToast(message: error.localizedDescription, type: .error)
         }
     }
 }
@@ -99,8 +98,7 @@ extension MealCollectionViewController: UICollectionViewDelegate, UICollectionVi
                 viewController.configure(with: mealDetail)
                 navigationController?.present(viewController, animated: true)
             } catch {
-                // TODO: Error handling
-                print(error)
+                showToast(message: error.localizedDescription, type: .error)
             }
         }
     }
