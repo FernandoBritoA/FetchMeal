@@ -87,7 +87,7 @@ class MealDetailViewController: UIViewController {
     public func configure(with model: MealDetail) {
         guard let url = URL(string: model.strMealThumb) else { return }
 
-        let instructions = formatMealDetail(from: model)
+        let instructions = Helpers.shared.formatMealDetail(from: model)
         mealInstructionsView.configure(with: instructions)
 
         Task {
