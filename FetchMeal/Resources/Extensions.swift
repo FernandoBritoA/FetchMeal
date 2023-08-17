@@ -14,10 +14,14 @@ extension UIImageView {
         let request = URLRequest(url: url)
 
         if let data = cache.cachedResponse(for: request)?.data, let image = UIImage(data: data) {
-            self.image = image
+            DispatchQueue.main.async { [weak self] in
+                self?.image = image
+            }
 
         } else {
-            self.image = nil
+            DispatchQueue.main.async { [weak self] in
+                self?.image = nil
+            }
 
             do {
                 let (data, response) = try await URLSession.shared.data(for: request)
@@ -26,7 +30,9 @@ extension UIImageView {
                 let cachedData = CachedURLResponse(response: response, data: data)
                 cache.storeCachedResponse(cachedData, for: request)
 
-                self.image = image
+                DispatchQueue.main.async { [weak self] in
+                    self?.image = image
+                }
             } catch {
                 print(error)
             }

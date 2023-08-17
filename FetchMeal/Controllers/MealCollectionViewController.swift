@@ -61,7 +61,9 @@ class MealCollectionViewController: UIViewController {
         do {
             meals = try await ApiCaller.shared.getMealsByCategory(category: .dessert)
 
-            mealCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                self?.mealCollectionView.reloadData()
+            }
 
         } catch {
             showToast(message: error.localizedDescription, type: .error)
@@ -93,13 +95,17 @@ extension MealCollectionViewController: UICollectionViewDelegate, UICollectionVi
 
         let mealData = meals[indexPath.row]
 
-        let viewController = MealDetailViewController()
-
         Task {
             do {
                 let mealDetail = try await ApiCaller.shared.getMealDetail(withId: mealData.idMeal)
-                viewController.configure(with: mealDetail)
-                navigationController?.present(viewController, animated: true)
+
+                DispatchQueue.main.async { [weak self] in
+                    let viewController = MealDetailViewController()
+                    viewController.configure(with: mealDetail)
+
+                    self?.navigationController?.present(viewController, animated: true)
+                }
+
             } catch {
                 showToast(message: error.localizedDescription, type: .error)
             }
