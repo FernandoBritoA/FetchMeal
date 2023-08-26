@@ -49,14 +49,12 @@ struct MealDetail: Decodable {
     var instructions: String = ""
     var ingredients: [String] = []
 
-    private func getMealKey(_ key: CodingKeys, index: Int? = nil) -> MealKey {
-        var stringValue: String = key.rawValue
-
-        if let index = index {
-            stringValue += String(index)
-        }
-
-        return MealKey(stringValue: stringValue)!
+    init(id: String, name: String, imageURL: String, instructions: String, ingredients: [String]) {
+        self.id = id
+        self.name = name
+        self.imageURL = imageURL
+        self.instructions = instructions
+        self.ingredients = ingredients
     }
 
     init(from decoder: Decoder) throws {
@@ -89,5 +87,15 @@ struct MealDetail: Decodable {
                 print(error)
             }
         }
+    }
+
+    private func getMealKey(_ key: CodingKeys, index: Int? = nil) -> MealKey {
+        var stringValue: String = key.rawValue
+
+        if let index = index {
+            stringValue += String(index)
+        }
+
+        return MealKey(stringValue: stringValue)!
     }
 }

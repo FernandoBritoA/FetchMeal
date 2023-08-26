@@ -9,31 +9,47 @@
 import XCTest
 
 final class FetchMealTests: XCTestCase {
-//    func testGetIngredientIndex() {
-//        let ingredientLabel = "strIngredient4"
-//        let measureLabel = "strMeasure10"
-//        let invalidLabel = "idMeal"
-//
-//        let oneDigitIndex = Helpers.shared.getIngredientIndex(from: ingredientLabel)
-//        let twoDigitIndex = Helpers.shared.getIngredientIndex(from: measureLabel)
-//        let invalidIndex = Helpers.shared.getIngredientIndex(from: invalidLabel)
-//
-//        XCTAssertEqual(oneDigitIndex, 3)
-//        XCTAssertEqual(twoDigitIndex, 9)
-//        XCTAssertNil(invalidIndex)
-//    }
-//
-//    func testSuccessfulFormatMealDetail() {
-//        let mealDetail = MealDetail(idMeal: "1234", strMeal: "Apple Pie", strInstructions: "Cook Pie", strMealThumb: "", strIngredient1: "Apple", strMeasure1: "1", strIngredient2: "Flour", strMeasure2: "100g", strIngredient3: "", strMeasure3: "", strIngredient4: nil, strMeasure4: nil, strIngredient5: nil, strMeasure5: nil, strIngredient6: nil, strMeasure6: nil, strIngredient7: nil, strMeasure7: nil, strIngredient8: nil, strMeasure8: nil, strIngredient9: nil, strMeasure9: nil, strIngredient10: nil, strMeasure10: nil, strIngredient11: nil, strMeasure11: nil, strIngredient12: nil, strMeasure12: nil, strIngredient13: nil, strMeasure13: nil, strIngredient14: nil, strMeasure14: nil, strIngredient15: nil, strMeasure15: nil, strIngredient16: nil, strMeasure16: nil, strIngredient17: nil, strMeasure17: nil, strIngredient18: nil, strMeasure18: nil, strIngredient19: nil, strMeasure19: nil, strIngredient20: nil, strMeasure20: nil)
-//
-//        let output = Helpers.shared.formatMealDetail(from: mealDetail)
-//        let expectedOutput = MealInstructions(
-//            title: "Apple Pie",
-//            instructions: "Cook Pie",
-//            ingredients: ["Apple: 1", "Flour: 100g"])
-//
-//        XCTAssertEqual(output.title, expectedOutput.title)
-//        XCTAssertEqual(output.instructions, expectedOutput.instructions)
-//        XCTAssertEqual(output.ingredients, expectedOutput.ingredients)
-//    }
+    func testDecodingMealDetail() {
+        let stringJSON = """
+        {
+           "idMeal": "123",
+           "strMeal": "Apple Pie",
+           "strMealThumb": "www.image.jpg",
+           "strInstructions": "Cook Pie",
+           "strIngredient1": "Apple",
+           "strMeasure1": "2",
+           "strIngredient2": "Flour",
+           "strMeasure2": "20g",
+           "strIngredient3": "Bread",
+           "strMeasure3": "2 slices",
+           "strIngredient4": "Sugar",
+           "strMeasure4": "300g",
+           "strIngredient5": "",
+           "strMeasure5": "",
+           "strIngredient6": " ",
+           "strMeasure6": " ",
+           "strIngredient7": "Butter",
+           "strMeasure7": "2oz",
+           "strIngredient8": null,
+           "strMeasure8": null,
+        }
+        """
+
+        let decoder = JSONDecoder()
+        let dataJSON = stringJSON.data(using: .utf8)
+
+        let output = try! decoder.decode(MealDetail.self, from: dataJSON!)
+        let expectedOutput = MealDetail(
+            id: "123",
+            name: "Apple Pie",
+            imageURL: "www.image.jpg",
+            instructions: "Cook Pie",
+            ingredients: ["Apple: 2", "Flour: 20g", "Bread: 2 slices", "Sugar: 300g", "Butter: 2oz"])
+
+        XCTAssertEqual(output.id, expectedOutput.id)
+        XCTAssertEqual(output.name, expectedOutput.name)
+        XCTAssertEqual(output.imageURL, expectedOutput.imageURL)
+        XCTAssertEqual(output.instructions, expectedOutput.instructions)
+        XCTAssertEqual(output.ingredients, expectedOutput.ingredients)
+    }
 }
