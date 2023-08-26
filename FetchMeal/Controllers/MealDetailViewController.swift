@@ -85,10 +85,13 @@ class MealDetailViewController: UIViewController {
     }
 
     public func configure(with model: MealDetail) {
-        guard let url = URL(string: model.strMealThumb) else { return }
+        guard let url = URL(string: model.imageURL) else { return }
 
-        let instructions = Helpers.shared.formatMealDetail(from: model)
-        mealInstructionsView.configure(with: instructions)
+        mealInstructionsView.configure(with: MealInstructions(
+            title: model.name,
+            instructions: model.instructions,
+            ingredients: model.ingredients
+        ))
 
         Task {
             await mealImageView.load(with: url)
