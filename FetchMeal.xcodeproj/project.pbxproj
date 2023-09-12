@@ -57,6 +57,8 @@
 		BF99AF8B2A86E5E800D4FACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BFABA1622A8ADD3E00B239FF /* BulletPointsStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletPointsStackView.swift; sourceTree = "<group>"; };
 		BFABA1642A8ADFB800B239FF /* BulletPointView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletPointView.swift; sourceTree = "<group>"; };
+		BFE2E13D2AB0064100400067 /* meal-demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "meal-demo.gif"; sourceTree = "<group>"; };
+		BFE2E13E2AB0065D00400067 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,8 @@
 		BF99AF712A86E5E700D4FACB = {
 			isa = PBXGroup;
 			children = (
+				BFE2E13E2AB0065D00400067 /* README.md */,
+				BFE2E13D2AB0064100400067 /* meal-demo.gif */,
 				BF99AF7C2A86E5E700D4FACB /* FetchMeal */,
 				BF4DBD262A8AB0F5006806CD /* FetchMealTests */,
 				BF99AF7B2A86E5E700D4FACB /* Products */,
